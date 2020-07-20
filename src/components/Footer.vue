@@ -50,12 +50,8 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="copyright-text">
-                                Copyright &copy;
-                                <!--<script>
-document.write(new Date().getFullYear());
-</script>-->
-                                All rights reserved | Shayna
-                            </div>
+                                Copyright &copy; 2020 All rights reserved | Shayna
+                              </div>
                         </div>
                     </div>
                 </div>

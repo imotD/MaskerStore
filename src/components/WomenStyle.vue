@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 mt-5">
-                        <div class="product-slider owl-carousel">
+                        <carousel class="product-slider" :items="3" :nav="false" :autoplay="tre" :dots="false">
                             <div class="product-item">
                                 <div class="pi-pic">
                                     <img src="img/mickey1.jpg" alt="" />
@@ -89,7 +89,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </carousel>
                     </div>
                 </div>
             </div>
@@ -98,11 +98,19 @@
 </template>
 
 <script>
+import carousel from 'vue-owl-carousel'
+
+
 export default {
-    name: 'WomenStyle'
+    name: 'WomenStyle',
+    components: {
+        carousel
+    }
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+.product-item {
+    margin-right: 25px;
+}
 </style>
