@@ -9,9 +9,9 @@
                                 <a href="#"><img src="img/logo_website_shayna_white.png" alt="" /></a>
                             </div>
                             <ul>
-                                <li>Address: Setra Duta, Bandung</li>
+                                <li>Address: Pandeglang, Banten</li>
                                 <li>Phone: +628 22081996</li>
-                                <li>Email: hello.shayna@gmail.com</li>
+                                <li>Email: gudang_masker@gmail.com</li>
                             </ul>
                             <div class="footer-social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -50,7 +50,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="copyright-text">
-                                Copyright &copy; 2020 All rights reserved | Shayna
+                                Copyright &copy; 2020 All rights reserved | imotD
                               </div>
                         </div>
                     </div>
