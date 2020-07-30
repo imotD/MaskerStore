@@ -19,8 +19,8 @@
                         <div class="col-lg-2 col-md-2">
                             <div class="logo">
                                 <a href="./index.html">
-                                    <img src="img/logo_website_shayna.png" alt="" />
-                                </a>
+                                                        <img src="img/logo_website_shayna.png" alt="" />
+                                                    </a>
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7"></div>
@@ -29,13 +29,13 @@
                                 <li class="cart-icon">
                                     Keranjang Belanja &nbsp;
                                     <a href="#">
-                                            <i class="icon_bag_alt"></i>
-                                            <span> {{keranjangUser.length}} </span>
-                                        </a>
+                                                                <i class="icon_bag_alt"></i>
+                                                                <span> {{keranjangUser.length}} </span>
+                                                            </a>
                                     <div class="cart-hover">
                                         <div class="select-items">
                                             <table>
-                                                <tbody v-if="keranjangUser > 0">
+                                                <tbody v-if="keranjangUser.length > 0">
                                                     <tr v-for="keranjang in keranjangUser" :key="keranjang.id">
                                                         <td class="si-pic">
                                                             <img class="photo-item" :src="keranjang.photo" alt="" />
@@ -46,7 +46,7 @@
                                                                 <h6>{{ keranjang.name }}</h6>
                                                             </div>
                                                         </td>
-                                                        <td class="si-close">
+                                                        <td @click="removeItem(keranjangUser.index)" class="si-close">
                                                             <i class="ti-close"></i>
                                                         </td>
                                                     </tr>
@@ -58,10 +58,10 @@
                                         </div>
                                         <div class="select-total">
                                             <span>total:</span>
-                                            <h5>$120.00</h5>
+                                            <h5>${{totalHarga}}.00</h5>
                                         </div>
                                         <div class="select-button">
-                                            <a href="#" class="primary-btn view-card">VIEW CARD</a>
+                                            <router-link to="/cart" class="primary-btn view-card">VIEW CARD</router-link>
                                             <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
                                         </div>
                                     </div>
@@ -83,6 +83,13 @@ export default {
             keranjangUser: []
         }
     },
+    methods: {
+        removeItem(index) {
+            this.keranjangUser.splice(index, 1);
+            const parsed = JSON.stringify(this.keranjangUser);
+            localStorage.setItem('keranjangUser', parsed);
+        }
+    },
     mounted() {
         if (localStorage.getItem('keranjangUser')) {
             try {
@@ -91,13 +98,20 @@ export default {
                 localStorage.removeItem('keranjangUser');
             }
         }
-    }
+    },
+    computed: {
+        totalHarga() {
+            return this.keranjangUser.reduce(function(items, data) {
+                return items + data.price;
+            }, 0);
+        }
+    },
 }
 </script>
 
 <style scoped>
-    .photo-item {
-        height: 80px;
-        width: 80px;
-    }
+.photo-item {
+    height: 80px;
+    width: 80px;
+}
 </style>
