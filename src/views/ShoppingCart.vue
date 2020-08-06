@@ -92,8 +92,8 @@
                                     </ul>
                                     <!-- <router-link to="/Succes"> -->
                                     <a @click="checkout()" href="#" class="proceed-btn">
-                                        I ALREADY PAID
-                                    </a>
+                                                I ALREADY PAID
+                                            </a>
                                     <!-- </router-link> -->
                                 </div>
                             </div>
@@ -147,12 +147,12 @@ export default {
                 'address': this.customerInfo.address,
                 "transaction_total": this.totalBiaya,
                 "transaction_status": "PENDING",
-                "transaction_details": productIds   
+                "transaction_details": productIds
             };
 
             axios
                 .post("http://shayna-backend.belajarkoding.com/api/checkout", checkoutData)
-                .then(()=> this.$router.push('Succes'))
+                .then(() => this.$router.push('Succes'))
                 .catch(err => console.log(err));
         }
     },
