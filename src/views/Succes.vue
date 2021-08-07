@@ -1,30 +1,32 @@
 <template>
-    <div class="succes">
-        <div class="d-flex success-checkout align-items-center justify-content-center">
-            <div class="col col-lg-4 text-center">
-                <img src="img/success-buy.png" alt="" width="294">
-                <h3 class="mt-4">
-                    Sukses Terbayar!
-                </h3>
-                <p class="mt-2">
-                    Silakan tunggu update terbaru dari kami via email yang sudah Anda daftarkan sebelumnya.
-                </p>
-                <router-link to="/" class="primary-btn pd-cart mt-3">Back to Home</router-link>
-            </div>
-        </div>
+  <div class="succes">
+    <div
+      class="d-flex success-checkout align-items-center justify-content-center"
+    >
+      <div class="col col-lg-4 text-center">
+        <img src="img/success-buy.png" alt="" width="294" />
+        <h3 class="mt-4">Sukses Terbayar!</h3>
+        <p class="mt-2">
+          Silakan tunggu update terbaru dari kami via email yang sudah Anda
+          daftarkan sebelumnya.
+        </p>
+        <router-link to="/" class="primary-btn pd-cart mt-3"
+          >Back to Home</router-link
+        >
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
 
 export default {
-    name: "Succes",
-    components: {}
-}
+  name: "Succes",
+  components: {},
+};
 </script>
 
 <style scoped>
-
 </style>
