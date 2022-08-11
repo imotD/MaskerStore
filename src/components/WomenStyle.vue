@@ -17,7 +17,11 @@
                 :key="itemProduct.id"
               >
                 <div class="pi-pic">
-                  <img :src="itemProduct.galleries[0].photo" alt="img" />
+                  <img
+                    style="object-fit: cover"
+                    :src="itemProduct.galleries[0].photo"
+                    alt="img"
+                  />
                   <ul
                     style="cursor: pointer"
                     @click="$emit('saveKeranjang', itemProduct)"
