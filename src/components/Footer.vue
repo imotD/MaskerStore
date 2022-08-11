@@ -11,9 +11,9 @@
                 /></a>
               </div>
               <ul>
-                <li>Address: Jakarta Pusat</li>
+                <li>Address: Jakarta Selamtan</li>
                 <li>Phone: +628 96510055</li>
-                <li>Email: murah.masker@gmail.com</li>
+                <li>Email: murah.masker@gudangmasker.id</li>
               </ul>
               <div class="footer-social">
                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -27,10 +27,10 @@
             <div class="footer-widget">
               <h5>Information</h5>
               <ul>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
                 <li><a href="#">About Us</a></li>
-                <li><a href="#">Checkout</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Serivius</a></li>
+                <li><a href="#">Privacy Policy</a></li>
               </ul>
             </div>
           </div>
@@ -39,9 +39,9 @@
               <h5>My Account</h5>
               <ul>
                 <li><a href="#">My Account</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Product</a></li>
                 <li><a href="#">Shopping Cart</a></li>
-                <li><a href="#">Shop</a></li>
+                <li><a href="#">Brand</a></li>
               </ul>
             </div>
           </div>

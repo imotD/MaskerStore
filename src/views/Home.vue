@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <Header />
+    <Header :cart="keranjangUser" @removeItem="deleteItem" />
     <HeroSlideShow />
-    <WomenStyle />
+    <WomenStyle @saveKeranjang="saveCart" />
     <InstagramPhoto />
     <PartnerLogo />
     <Footer />
@@ -29,6 +29,40 @@ export default {
     InstagramPhoto,
     PartnerLogo,
     Footer,
+  },
+  mounted() {
+    if (localStorage.getItem("keranjangUser")) {
+      try {
+        this.keranjangUser = JSON.parse(localStorage.getItem("keranjangUser"));
+      } catch (e) {
+        localStorage.removeItem("keranjangUser");
+      }
+    }
+  },
+  data() {
+    return {
+      keranjangUser: [],
+    };
+  },
+  methods: {
+    deleteItem(index) {
+      this.keranjangUser.splice(index, 1);
+      const parsed = JSON.stringify(this.keranjangUser);
+      localStorage.setItem("keranjangUser", parsed);
+    },
+    saveCart(product) {
+      let productStored = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        photo: product.galleries[0].photo,
+      };
+
+      this.keranjangUser.push(productStored);
+      const parsed = JSON.stringify(this.keranjangUser);
+      localStorage.setItem("keranjangUser", parsed);
+      window.scrollTo(0, 0);
+    },
   },
 };
 </script>

@@ -5,7 +5,7 @@
         <div class="container">
           <div class="ht-left">
             <div class="mail-service">
-              <i class="fa fa-envelope"></i>murah.masker@gmail.com
+              <i class="fa fa-envelope"></i>murah.masker@gudangmasker.id
             </div>
             <div class="phone-service">
               <i class="fa fa-phone"></i> +628 96510055
@@ -18,8 +18,11 @@
           <div class="row">
             <div class="col-lg-2 col-md-2">
               <div class="logo">
-                <a href="./index.html">
-                  <img src="img/logo_website_shayna.png" alt="" />
+                <a href="/">
+                  <img
+                    src="img/logo_website_shayna.png"
+                    alt="logo-gudang-masker"
+                  />
                 </a>
               </div>
             </div>
@@ -30,21 +33,18 @@
                   Cart &nbsp;
                   <a href="#">
                     <i class="icon_bag_alt"></i>
-                    <span> {{ keranjangUser.length }} </span>
+                    <span> {{ cart.length }} </span>
                   </a>
                   <div class="cart-hover">
                     <div class="select-items">
                       <table>
-                        <tbody v-if="keranjangUser.length > 0">
-                          <tr
-                            v-for="keranjang in keranjangUser"
-                            :key="keranjang.id"
-                          >
+                        <tbody v-if="cart.length > 0">
+                          <tr v-for="(keranjang, index) in cart" :key="index">
                             <td class="si-pic">
                               <img
                                 class="photo-item"
                                 :src="keranjang.photo"
-                                alt=""
+                                alt="img"
                               />
                             </td>
                             <td class="si-text">
@@ -54,7 +54,7 @@
                               </div>
                             </td>
                             <td
-                              @click="removeItem(keranjangUser.index)"
+                              @click="$emit('removeItem', index)"
                               class="si-close"
                             >
                               <i class="ti-close"></i>
@@ -92,30 +92,18 @@
 <script>
 export default {
   name: "Header",
-  data() {
-    return {
-      keranjangUser: [],
-    };
-  },
-  methods: {
-    removeItem(index) {
-      this.keranjangUser.splice(index, 1);
-      const parsed = JSON.stringify(this.keranjangUser);
-      localStorage.setItem("keranjangUser", parsed);
+  props: {
+    cart: {
+      type: Array,
+      default: () => [],
     },
-  },
-  mounted() {
-    if (localStorage.getItem("keranjangUser")) {
-      try {
-        this.keranjangUser = JSON.parse(localStorage.getItem("keranjangUser"));
-      } catch (e) {
-        localStorage.removeItem("keranjangUser");
-      }
-    }
   },
   computed: {
     totalHarga() {
-      return this.keranjangUser.reduce(function (items, data) {
+      return this.cart.reduce(function (items, data) {
+        // console.log('keranjanguser', this.keranjangUser)
+        // console.log("item", items);
+        // console.log('data', data)
         return items + data.price;
       }, 0);
     },
