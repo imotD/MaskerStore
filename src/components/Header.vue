@@ -76,7 +76,12 @@
                       <router-link to="/cart" class="primary-btn view-card">
                         VIEW CARD
                       </router-link>
-                      <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
+                      <div
+                        @click="$emit('checkout')"
+                        class="primary-btn checkout-btn"
+                      >
+                        CHECK OUT
+                      </div>
                     </div>
                   </div>
                 </li>

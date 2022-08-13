@@ -1,6 +1,10 @@
 <template>
   <div class="ShoppingCart">
-    <Header :cart="keranjangUser" @removeItem="deleteItem" />
+    <Header
+      :cart="keranjangUser"
+      @removeItem="deleteItem"
+      @checkout="checkout"
+    />
 
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">

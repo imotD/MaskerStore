@@ -135,6 +135,29 @@ export default {
     };
   },
   methods: {
+    checkout() {
+      let productIds = this.keranjangUser.map(function (product) {
+        return product.id;
+      });
+
+      let checkoutData = {
+        name: this.customerInfo.name,
+        email: this.customerInfo.email,
+        number: this.customerInfo.number,
+        address: this.customerInfo.address,
+        transaction_total: this.totalBiaya,
+        transaction_status: "PENDING",
+        transaction_details: productIds,
+      };
+
+      axios
+        .post(
+          "http://shayna-backend.belajarkoding.com/api/checkout",
+          checkoutData
+        )
+        .then(() => this.$router.push("Succes"))
+        .catch((err) => console.log(err));
+    },
     changeImage(urlImage) {
       this.gambar_default = urlImage;
     },
