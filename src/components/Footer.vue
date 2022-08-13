@@ -11,7 +11,7 @@
                 /></a>
               </div>
               <ul>
-                <li>Address: Jakarta Selamtan</li>
+                <li>Address: Jakarta Pusat</li>
                 <li>Phone: +628 96510055</li>
                 <li>Email: murah.masker@gudangmasker.id</li>
               </ul>

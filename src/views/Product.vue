@@ -1,6 +1,6 @@
 <template>
   <div class="product">
-    <Header />
+    <Header :cart="keranjangUser" @removeItem="deleteItem" />
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
       <div class="container">
@@ -56,8 +56,8 @@
                     <h3>{{ productDetails.name }}</h3>
                   </div>
                   <div class="pd-desc">
-                    <p v-html="productDetails.description"></p>
-                    <h4>{{ productDetails.price }}</h4>
+                    <p v-html="productDetails.description" />
+                    <h4>${{ productDetails.price }}</h4>
                   </div>
                   <div class="quantity">
                     <router-link to="/cart">
@@ -109,6 +109,24 @@ export default {
     RelatedProduct,
     Footer,
   },
+  mounted() {
+    if (localStorage.getItem("keranjangUser")) {
+      try {
+        this.keranjangUser = JSON.parse(localStorage.getItem("keranjangUser"));
+      } catch (e) {
+        localStorage.removeItem("keranjangUser");
+      }
+    }
+
+    axios
+      .get("http://shayna-backend.belajarkoding.com/api/products", {
+        params: {
+          id: this.$route.params.id,
+        },
+      })
+      .then((res) => this.setDataPicture(res.data.data))
+      .catch((err) => console.log(err));
+  },
   data() {
     return {
       gambar_default: "",
@@ -136,24 +154,11 @@ export default {
       const parsed = JSON.stringify(this.keranjangUser);
       localStorage.setItem("keranjangUser", parsed);
     },
-  },
-  mounted() {
-    if (localStorage.getItem("keranjangUser")) {
-      try {
-        this.keranjangUser = JSON.parse(localStorage.getItem("keranjangUser"));
-      } catch (e) {
-        localStorage.removeItem("keranjangUser");
-      }
-    }
-
-    axios
-      .get("http://shayna-backend.belajarkoding.com/api/products", {
-        params: {
-          id: this.$route.params.id,
-        },
-      })
-      .then((res) => this.setDataPicture(res.data.data))
-      .catch((err) => console.log(err));
+    deleteItem(index) {
+      this.keranjangUser.splice(index, 1);
+      const parsed = JSON.stringify(this.keranjangUser);
+      localStorage.setItem("keranjangUser", parsed);
+    },
   },
 };
 </script>

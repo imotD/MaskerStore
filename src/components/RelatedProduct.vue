@@ -13,7 +13,11 @@
           <div class="col-lg-3 col-sm-6">
             <div class="product-item">
               <div class="pi-pic">
-                <img src="img/products/women-1.jpg" alt="" />
+                <img
+                  style="object-fit: cover"
+                  src="img/products/women-1.jpg"
+                  alt="img"
+                />
                 <ul>
                   <li class="w-icon active">
                     <a href="#"><i class="icon_bag_alt"></i></a>
@@ -36,7 +40,11 @@
           <div class="col-lg-3 col-sm-6">
             <div class="product-item">
               <div class="pi-pic">
-                <img src="img/products/women-2.jpg" alt="" />
+                <img
+                  style="object-fit: cover"
+                  src="img/products/women-2.jpg"
+                  alt="img"
+                />
                 <ul>
                   <li class="w-icon active">
                     <a href="#"><i class="icon_bag_alt"></i></a>
@@ -56,7 +64,11 @@
           <div class="col-lg-3 col-sm-6">
             <div class="product-item">
               <div class="pi-pic">
-                <img src="img/products/women-3.jpg" alt="" />
+                <img
+                  style="object-fit: cover"
+                  src="img/products/women-3.jpg"
+                  alt="img"
+                />
                 <ul>
                   <li class="w-icon active">
                     <a href="#"><i class="icon_bag_alt"></i></a>
@@ -76,7 +88,11 @@
           <div class="col-lg-3 col-sm-6">
             <div class="product-item">
               <div class="pi-pic">
-                <img src="img/products/women-4.jpg" alt="" />
+                <img
+                  style="object-fit: cover"
+                  src="img/products/women-4.jpg"
+                  alt="img"
+                />
                 <ul>
                   <li class="w-icon active">
                     <a href="#"><i class="icon_bag_alt"></i></a>

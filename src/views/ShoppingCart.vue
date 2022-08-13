@@ -1,6 +1,6 @@
 <template>
   <div class="ShoppingCart">
-    <Header />
+    <Header :cart="keranjangUser" @removeItem="deleteItem" />
 
     <!-- Breadcrumb Section Begin -->
     <div class="breacrumb-section">
@@ -44,9 +44,11 @@
                         <td class="cart-title first-row text-center">
                           <h5>{{ keranjang.name }}</h5>
                         </td>
-                        <td class="p-price first-row">{{ keranjang.price }}</td>
+                        <td class="p-price first-row">
+                          ${{ keranjang.price }}.00
+                        </td>
                         <td
-                          @click="removeItem(keranjangUser.index)"
+                          @click="deleteItem(keranjangUser.index)"
                           class="delete-item"
                         >
                           <a href="#"><i class="material-icons">close</i></a>
@@ -131,7 +133,7 @@
                       No. Rekening <span>2208 1996 1403</span>
                     </li>
                     <li class="subtotal mt-3">
-                      Nama Penerima <span>Shayna</span>
+                      Nama Penerima <span>GudangMasker</span>
                     </li>
                   </ul>
                   <!-- <router-link to="/Succes"> -->
@@ -174,7 +176,7 @@ export default {
     };
   },
   methods: {
-    removeItem(index) {
+    deleteItem(index) {
       this.keranjangUser.splice(index, 1);
       const parsed = JSON.stringify(this.keranjangUser);
       localStorage.setItem("keranjangUser", parsed);
